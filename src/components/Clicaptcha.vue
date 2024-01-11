@@ -32,9 +32,12 @@ import qs from "qs";
 axios.defaults.withCredentials = true;
 
 export default {
+  props: {
+    src: String,
+    callback: Function,
+  },
   data() {
     return {
-      src: "",
       imgSrc: "",
       success: "验证成功！",
       error: "未点中正确区域，请重试！",
@@ -42,8 +45,6 @@ export default {
       isCheck: false,
       xy: [],
       text: [],
-      callback: function () {
-      }
     };
   },
   created() {
@@ -79,7 +80,7 @@ export default {
                 if (cb.data == 1) {
                   this.tip = this.success;
                   setTimeout(() => {
-                    this.close();
+                    // this.close();
                     this.callback({"info": captchainfo, status: true, src: this.src});
                   }, 1500);
                 } else {
@@ -106,7 +107,7 @@ export default {
 
 <style lang="scss" scoped>
 #clicaptcha-container {
-  width: 350px;
+  width: 100%;
   height: 290px;
   padding: 15px;
   border: 1px solid #b1b3b8;
@@ -170,7 +171,7 @@ export default {
 
   .clicaptcha-refresh-box {
     position: relative;
-    margin-top: 10px;
+    //margin-top: 10px;
   }
 
   .clicaptcha-refresh-line {

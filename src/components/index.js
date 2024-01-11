@@ -1,20 +1,10 @@
-import Vue from 'vue'
-import VueCookies from 'vue-cookies'
+import VueClicaptcha from './Clicaptcha'
+import _Vue from 'vue'
 
-Vue.use(VueCookies)
-let ClicaptchaConstructor = Vue.extend(require('./Clicaptcha.vue').default)
-
-let instance;
-
-const Clicaptcha = (options) => {
-	options = options || {}
-	instance = new ClicaptchaConstructor({
-		data: options
-	})
-	instance.vm = instance.$mount()
-	instance.dom = instance.vm.$el
-	document.body.appendChild(instance.dom)
-	return instance.vm
+VueClicaptcha.install = Vue => {
+	if (!Vue) {
+		window.Vue = Vue = _Vue
+	}
+	Vue.component(VueClicaptcha.name, VueClicaptcha)
 }
-
-export default Clicaptcha
+export default VueClicaptcha;
