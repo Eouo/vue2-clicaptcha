@@ -29,6 +29,7 @@
 import axios from "axios";
 import qs from "qs";
 import VueCookies from 'vue-cookies'
+
 axios.defaults.withCredentials = true;
 
 export default {
@@ -54,7 +55,7 @@ export default {
     loadImg() {
       this.imgSrc = this.src + "?" + new Date().getTime();
     },
-    setTitle() {
+    async setTitle() {
       this.tip = "";
       this.text = VueCookies.get("clicaptcha_text").split(",");
       this.xy = [];
@@ -86,7 +87,7 @@ export default {
                 } else {
                   this.tip = this.error;
                   setTimeout(() => {
-                    this.callback({"info": captchainfo, status: true, src: this.src});
+                    this.callback({"info": captchainfo, status: false, src: this.src});
                     this.reset();
                   }, 1500);
                 }
