@@ -14,7 +14,7 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue": "^2.6.12",
-    "vue-cookies": "^1.7.4"
+    "vue-cookies": "^1.8.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.4",

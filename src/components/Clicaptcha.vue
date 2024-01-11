@@ -28,7 +28,7 @@
 <script>
 import axios from "axios";
 import qs from "qs";
-
+import VueCookies from 'vue-cookies'
 axios.defaults.withCredentials = true;
 
 export default {
@@ -56,7 +56,7 @@ export default {
     },
     setTitle() {
       this.tip = "";
-      this.text = window.$cookies.get("clicaptcha_text").split(",");
+      this.text = VueCookies.get("clicaptcha_text").split(",");
       this.xy = [];
     },
     record(event) {
@@ -107,7 +107,7 @@ export default {
 
 <style lang="scss" scoped>
 #clicaptcha-container {
-  width: 100%;
+  width: auto;
   height: 290px;
   padding: 15px;
   border: 1px solid #b1b3b8;
