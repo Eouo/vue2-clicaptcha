@@ -97,10 +97,6 @@ export default {
     },
     reset() {
       this.loadImg();
-    },
-    close() {
-      this.$destroy(true);
-      this.$el.parentNode.removeChild(this.$el);
     }
   }
 };
