@@ -36,6 +36,7 @@ export default {
   props: {
     src: String,
     callback: Function,
+    close: Function,
   },
   data() {
     return {
